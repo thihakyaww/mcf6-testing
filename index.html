@@ -1,1 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MMSConnection Service Dashboard</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for smooth scrolling and clean font */
+        html {
+            scroll-behavior: smooth;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 antialiased">
+
+    <!-- Header / Navigation Bar -->
+    <header id="header" class="bg-gray-900 text-white shadow-lg sticky top-0 z-20 font-sans">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 text-2xl font-bold text-teal-400">
+                    MMS<span class="text-white">Connect</span>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-4">
+                    <a href="#status"
+                        class="px-3 py-2 rounded-lg text-sm font-medium hover:bg-teal-700 transition duration-150">Team
+                        Status</a>
+                    <a href="#workflow"
+                        class="px-3 py-2 rounded-lg text-sm font-medium hover:bg-teal-700 transition duration-150">Workflow</a>
+                    <a href="#projects"
+                        class="px-3 py-2 rounded-lg text-sm font-medium hover:bg-teal-700 transition duration-150">Recent
+                        Projects</a>
+                    <a href="#contact"
+                        class="px-3 py-2 rounded-lg text-sm font-medium hover:bg-teal-700 transition duration-150">Contact</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button"
+                        class="p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500">
+                        <!-- Menu Icon (default) -->
+                        <svg id="menu-icon" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <line x1="3" y1="12" x2="21" y2="12" />
+                            <line x1="3" y1="6" x2="21" y2="6" />
+                            <line x1="3" y1="18" x2="21" y2="18" />
+                        </svg>
+                        <!-- Close Icon (hidden by default) -->
+                        <svg id="close-icon" class="h-6 w-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18" />
+                            <line x1="6" y1="6" x2="18" y2="18" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Content -->
+        <div id="mobile-menu" class="md:hidden hidden bg-gray-800 pb-3 space-y-1 px-2 sm:px-3">
+            <a href="#status"
+                class="block px-3 py-2 rounded-lg text-base font-medium hover:bg-teal-700 transition duration-150">Team
+                Status</a>
+            <a href="#workflow"
+                class="block px-3 py-2 rounded-lg text-base font-medium hover:bg-teal-700 transition duration-150">Workflow</a>
+            <a href="#projects"
+                class="block px-3 py-2 rounded-lg text-base font-medium hover:bg-teal-700 transition duration-150">Recent
+                Projects</a>
+            <a href="#contact"
+                class="block px-3 py-2 rounded-lg text-base font-medium hover:bg-teal-700 transition duration-150">Contact</a>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section class="bg-gray-800 text-white py-16 md:py-24" id="home">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight">
+                    Collaborative <span class="text-teal-400">Service Delivery by MMSConnect</span>
+                </h1>
+                <p class="mt-4 text-lg sm:text-xl text-gray-300 max-w-4xl mx-auto">
+                    Our team—Instructor, UI/UX, Frontend, and Backend—works in synchronized harmony, ensuring
+                    high-quality, scalable, and beautifully designed web solutions from concept to deployment.
+                </p>
+                <div class="mt-8 flex justify-center space-x-4">
+                    <a href="#workflow"
+                        class="px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-lg text-gray-900 bg-teal-400 hover:bg-teal-300 transition duration-150 transform hover:scale-105">
+                        View Live Workflow
+                    </a>
+                    <a href="#status"
+                        class="px-6 py-3 border border-gray-500 text-base font-medium rounded-full shadow-lg text-white bg-gray-700 hover:bg-gray-600 transition duration-150 transform hover:scale-105">
+                        Meet the Team
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Member Status Section -->
+        <section class="py-16 md:py-20" id="status">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900">
+                        Current Team Status & Roles
+                    </h2>
+                    <p class="mt-4 text-xl text-gray-500">
+                        Each member is focused on their core deliverables to ensure project success.
+                    </p>
+                </div>
+
+                <div class="mt-12 grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+
+                    <!-- Role Card 1: Instructor / QA -->
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-1 border-t-4 border-gray-200">
+                        <div class="flex items-center space-x-4">
+                            <!-- CheckCircle Icon (Instructor / QA) -->
+                            <svg class="h-10 w-10 text-blue-600 p-1 rounded-full bg-gray-50"
+                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                <polyline points="22 4 12 14.01 9 11.01" />
+                            </svg>
+                            <h3 class="text-xl font-bold text-gray-900">Instructor</h3>
+                        </div>
+                        <p class="mt-4 text-gray-600 italic">
+                            Current Focus: <span class="font-semibold text-gray-800">Final QA & Delivery Sign-off</span>
+                        </p>
+                        <p class="mt-2 text-sm text-gray-500">Ensures all project requirements and standards are met
+                            before client deployment.</p>
+                        <span
+                            class="mt-4 inline-flex items-center px-4 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                            Status: Reviewing
+                        </span>
+                    </div>
+
+                    <!-- Role Card 2: UI/UX Designer -->
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-1 border-t-4 border-gray-200">
+                        <div class="flex items-center space-x-4">
+                            <!-- Palette Icon (UI/UX) -->
+                            <svg class="h-10 w-10 text-pink-600 p-1 rounded-full bg-gray-50"
+                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M12 22A7 7 0 0 0 5 15c0-3.87 3.13-7 7-7s7 3.13 7 7a7 7 0 0 0-5 6h-2z" />
+                                <path
+                                    d="M12 2A2.83 2.83 0 0 0 9.17 4.83a2.83 2.83 0 0 0 5.66 0A2.83 2.83 0 0 0 12 2z" />
+                            </svg>
+                            <h3 class="text-xl font-bold text-gray-900">UI/UX Designer</h3>
+                        </div>
+                        <p class="mt-4 text-gray-600 italic">
+                            Current Focus: <span class="font-semibold text-gray-800">Component Mockups & Design
+                                System</span>
+                        </p>
+                        <p class="mt-2 text-sm text-gray-500">Focuses on user research, wireframing, and creating a
+                            cohesive, accessible visual identity.</p>
+                        <span
+                            class="mt-4 inline-flex items-center px-4 py-1 rounded-full text-sm font-medium bg-pink-100 text-pink-800">
+                            Status: Designing
+                        </span>
+                    </div>
+
+                    <!-- Role Card 3: Frontend Developer -->
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-1 border-t-4 border-gray-200">
+                        <div class="flex items-center space-x-4">
+                            <!-- Code Icon (Frontend) -->
+                            <svg class="h-10 w-10 text-green-600 p-1 rounded-full bg-gray-50"
+                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="16 18 22 12 16 6" />
+                                <polyline points="8 6 2 12 8 18" />
+                            </svg>
+                            <h3 class="text-xl font-bold text-gray-900">Frontend Developer</h3>
+                        </div>
+                        <p class="mt-4 text-gray-600 italic">
+                            Current Focus: <span class="font-semibold text-gray-800">React Implementation & State
+                                Management</span>
+                        </p>
+                        <p class="mt-2 text-sm text-gray-500">Translates designs into a functional, responsive web
+                            application using modern frameworks.</p>
+                        <span
+                            class="mt-4 inline-flex items-center px-4 py-1 rounded-full text-sm font-medium bg-indigo-100 text-indigo-800">
+                            Status: Coding
+                        </span>
+                    </div>
+
+                    <!-- Role Card 4: Backend Developer -->
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-1 border-t-4 border-gray-200">
+                        <div class="flex items-center space-x-4">
+                            <!-- Database Icon (Backend) -->
+                            <svg class="h-10 w-10 text-red-600 p-1 rounded-full bg-gray-50"
+                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <ellipse cx="12" cy="5" rx="9" ry="3" />
+                                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+                                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+                            </svg>
+                            <h3 class="text-xl font-bold text-gray-900">Backend Developer</h3>
+                        </div>
+                        <p class="mt-4 text-gray-600 italic">
+                            Current Focus: <span class="font-semibold text-gray-800">API Endpoint Development & Database
+                                Ops</span>
+                        </p>
+                        <p class="mt-2 text-sm text-gray-500">Manages server-side logic, data storage, and ensures
+                            secure, fast communication.</p>
+                        <span
+                            class="mt-4 inline-flex items-center px-4 py-1 rounded-full text-sm font-medium bg-red-100 text-red-800">
+                            Status: Deploying
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Workflow Visualization Section -->
+        <section class="bg-gray-100 py-16 md:py-20" id="workflow">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900">
+                        Team Communication & Workflow
+                    </h2>
+                    <p class="mt-4 text-xl text-gray-500">
+                        From concept to deployment, tasks flow seamlessly between specialized roles.
+                    </p>
+                </div>
+
+                <!-- Workflow Timeline/Flowchart (Responsive) -->
+                <div
+                    class="flex flex-col lg:flex-row justify-between items-center space-y-12 lg:space-y-0 lg:space-x-4">
+                    <!-- Node 1: UI/UX Designer -->
+                    <div class="flex flex-col items-center flex-grow relative">
+                        <div
+                            class="w-20 h-20 flex items-center justify-center rounded-full bg-white shadow-lg ring-4 ring-offset-4 ring-offset-gray-50 bg-pink-500">
+                            <!-- Palette Icon -->
+                            <svg class="h-10 w-10 text-white" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22A7 7 0 0 0 5 15c0-3.87 3.13-7 7-7s7 3.13 7 7a7 7 0 0 0-5 6h-2z" />
+                                <path
+                                    d="M12 2A2.83 2.83 0 0 0 9.17 4.83a2.83 2.83 0 0 0 5.66 0A2.83 2.83 0 0 0 12 2z" />
+                            </svg>
+                        </div>
+                        <div class="mt-4 text-center">
+                            <p class="text-lg font-bold text-gray-800">UI/UX Designer</p>
+                            <p class="text-sm text-gray-500">Conceptualization</p>
+                        </div>
+                        <!-- Arrow for Large Screens -->
+                        <div
+                            class="hidden lg:block absolute top-10 left-[calc(50%+40px)] w-full -mr-full h-1 bg-gray-300 translate-x-1/2">
+                            <svg class="absolute -right-2 top-[-10px] h-6 w-6 text-gray-300" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <!-- Arrow for Small Screens -->
+                        <div class="block lg:hidden mt-4 h-12 w-1 bg-gray-300">
+                            <svg class="absolute top-full left-[45%] h-6 w-6 text-gray-300 transform -translate-y-full"
+                                fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z"
+                                    clip-rule="evenodd" transform="rotate(90 10 10)" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Node 2: Frontend Developer -->
+                    <div class="flex flex-col items-center flex-grow relative">
+                        <div
+                            class="w-20 h-20 flex items-center justify-center rounded-full bg-white shadow-lg ring-4 ring-offset-4 ring-offset-gray-50 bg-green-500">
+                            <!-- Code Icon -->
+                            <svg class="h-10 w-10 text-white" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="16 18 22 12 16 6" />
+                                <polyline points="8 6 2 12 8 18" />
+                            </svg>
+                        </div>
+                        <div class="mt-4 text-center">
+                            <p class="text-lg font-bold text-gray-800">Frontend Developer</p>
+                            <p class="text-sm text-gray-500">Building the Interface</p>
+                        </div>
+                        <!-- Arrow for Large Screens -->
+                        <div
+                            class="hidden lg:block absolute top-10 left-[calc(50%+40px)] w-full -mr-full h-1 bg-gray-300 translate-x-1/2">
+                            <svg class="absolute -right-2 top-[-10px] h-6 w-6 text-gray-300" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <!-- Arrow for Small Screens -->
+                        <div class="block lg:hidden mt-4 h-12 w-1 bg-gray-300">
+                            <svg class="absolute top-full left-[45%] h-6 w-6 text-gray-300 transform -translate-y-full"
+                                fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z"
+                                    clip-rule="evenodd" transform="rotate(90 10 10)" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Node 3: Backend Developer -->
+                    <div class="flex flex-col items-center flex-grow relative">
+                        <div
+                            class="w-20 h-20 flex items-center justify-center rounded-full bg-white shadow-lg ring-4 ring-offset-4 ring-offset-gray-50 bg-red-500">
+                            <!-- Database Icon -->
+                            <svg class="h-10 w-10 text-white" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <ellipse cx="12" cy="5" rx="9" ry="3" />
+                                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+                                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+                            </svg>
+                        </div>
+                        <div class="mt-4 text-center">
+                            <p class="text-lg font-bold text-gray-800">Backend Developer</p>
+                            <p class="text-sm text-gray-500">Data & API Structure</p>
+                        </div>
+                        <!-- Arrow for Large Screens -->
+                        <div
+                            class="hidden lg:block absolute top-10 left-[calc(50%+40px)] w-full -mr-full h-1 bg-gray-300 translate-x-1/2">
+                            <svg class="absolute -right-2 top-[-10px] h-6 w-6 text-gray-300" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <!-- Arrow for Small Screens -->
+                        <div class="block lg:hidden mt-4 h-12 w-1 bg-gray-300">
+                            <svg class="absolute top-full left-[45%] h-6 w-6 text-gray-300 transform -translate-y-full"
+                                fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z"
+                                    clip-rule="evenodd" transform="rotate(90 10 10)" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Node 4: Instructor (Final Check) -->
+                    <div class="flex flex-col items-center flex-grow relative flex-shrink-0">
+                        <div
+                            class="w-20 h-20 flex items-center justify-center rounded-full bg-white shadow-lg ring-4 ring-offset-4 ring-offset-gray-50 bg-blue-500">
+                            <!-- CheckCircle Icon -->
+                            <svg class="h-10 w-10 text-white" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                <polyline points="22 4 12 14.01 9 11.01" />
+                            </svg>
+                        </div>
+                        <div class="mt-4 text-center">
+                            <p class="text-lg font-bold text-gray-800">Instructor</p>
+                            <p class="text-sm text-gray-500">Final Review & Client Delivery</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Recent Projects Section -->
+        <section class="py-16 md:py-20" id="projects">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900">
+                        Recent Projects & Success Stories
+                    </h2>
+                    <p class="mt-4 text-xl text-gray-500">
+                        A look at how our combined team expertise delivers measurable results for our clients.
+                    </p>
+                </div>
+
+                <div class="grid gap-8 grid-cols-1 md:grid-cols-3">
+
+                    <!-- Project Card 1 -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-teal-500 flex flex-col h-full">
+                        <div class="flex items-center space-x-3 mb-3">
+                            <span class="px-3 py-1 text-xs font-semibold rounded-full text-white bg-red-500">
+                                Backend Focus
+                            </span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">E-commerce Backend Refactor</h3>
+                        <p class="text-gray-600 flex-grow">Migrated legacy PHP API to a modern Node.js service
+                            architecture, improving transaction latency by 40%.</p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span
+                                class="text-xs font-medium text-teal-700 bg-teal-100 px-3 py-1 rounded-full">Node.js</span>
+                            <span
+                                class="text-xs font-medium text-teal-700 bg-teal-100 px-3 py-1 rounded-full">MongoDB</span>
+                            <span
+                                class="text-xs font-medium text-teal-700 bg-teal-100 px-3 py-1 rounded-full">Microservices</span>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 2 -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-teal-500 flex flex-col h-full">
+                        <div class="flex items-center space-x-3 mb-3">
+                            <span class="px-3 py-1 text-xs font-semibold rounded-full text-white bg-green-500">
+                                UI/UX & Frontend Focus
+                            </span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Client Portal Redesign</h3>
+                        <p class="text-gray-600 flex-grow">Executed a complete overhaul of the user dashboard, resulting
+                            in a 25% increase in user engagement via a responsive React interface.</p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span
+                                class="text-xs font-medium text-teal-700 bg-teal-100 px-3 py-1 rounded-full">React</span>
+                            <span class="text-xs font-medium text-teal-700 bg-teal-100 px-3 py-1 rounded-full">Tailwind
+                                CSS</span>
+                            <span
+                                class="text-xs font-medium text-teal-700 bg-teal-100 px-3 py-1 rounded-full">Figma</span>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 3 -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-teal-500 flex flex-col h-full">
+                        <div class="flex items-center space-x-3 mb-3">
+                            <span class="px-3 py-1 text-xs font-semibold rounded-full text-white bg-pink-500">
+                                UI/UX Focus
+                            </span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Mobile App Wireframing</h3>
+                        <p class="text-gray-600 flex-grow">Developed high-fidelity wireframes and prototype flows for a
+                            new internal field-service mobile application.</p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span
+                                class="text-xs font-medium text-teal-700 bg-teal-100 px-3 py-1 rounded-full">Figma</span>
+                            <span class="text-xs font-medium text-teal-700 bg-teal-100 px-3 py-1 rounded-full">User
+                                Flow</span>
+                            <span
+                                class="text-xs font-medium text-teal-700 bg-teal-100 px-3 py-1 rounded-full">Prototyping</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Secondary CTA -->
+                <div class="mt-16 text-center">
+                    <a href="#"
+                        class="inline-flex items-center px-8 py-3 border border-transparent text-base font-medium rounded-full shadow-lg text-white bg-teal-600 hover:bg-teal-700 transition duration-150 transform hover:scale-105">
+                        Explore Full Portfolio
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-8" id="contact">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="md:flex md:justify-around md:items-start text-left md:text-center space-y-6 md:space-y-0">
+
+                <!-- Contact Details -->
+                <div class="space-y-2">
+                    <h3 class="text-lg font-semibold text-white mb-2">Contact Us</h3>
+                    <p class="flex items-center space-x-2 text-sm md:justify-center">
+                        <!-- Phone Icon -->
+                        <svg class="w-4 h-4 text-teal-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 3.08 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                        </svg>
+                        <span>(555) 123-4567</span>
+                    </p>
+                    <p class="flex items-center space-x-2 text-sm md:justify-center">
+                        <!-- Mail Icon -->
+                        <svg class="w-4 h-4 text-teal-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="4" width="20" height="16" rx="2" />
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                        </svg>
+                        <a href="mailto:info@mmsconnect.com" class="hover:text-teal-400">info@mmsconnect.com</a>
+                    </p>
+                </div>
+
+                <!-- Address -->
+                <div class="space-y-2">
+                    <h3 class="text-lg font-semibold text-white mb-2">Our Office</h3>
+                    <p class="flex items-start space-x-2 text-sm md:justify-center">
+                        <!-- MapPin Icon -->
+                        <svg class="w-4 h-4 text-teal-400 mt-1 flex-shrink-0" xmlns="http://www.w3.org/2000/svg"
+                            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z" />
+                            <circle cx="12" cy="10" r="3" />
+                        </svg>
+                        <span class="md:text-center">
+                            100 MMS Blvd.
+                            <br />
+                            Suite 500, Tech City, CA 90210
+                        </span>
+                    </p>
+                </div>
+
+                <!-- Legal Links (Placeholder) -->
+                <div class="space-y-2">
+                    <h3 class="text-lg font-semibold text-white mb-2">Legal</h3>
+                    <a href="#" class="block hover:text-teal-400 text-sm">Privacy Policy</a>
+                    <a href="#" class="block hover:text-teal-400 text-sm">Terms of Service</a>
+                </div>
+
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-gray-700">
+                <p class="text-sm">
+                    &copy; <span id="current-year"></span> **MMSConnection** Inc. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Pure JavaScript for Interactivity -->
+    <script>
+        // Set the current year in the footer
+        document.getElementById( 'current-year' ).textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle Logic
+        const menuButton = document.getElementById( 'mobile-menu-button' );
+        const mobileMenu = document.getElementById( 'mobile-menu' );
+        const menuIcon = document.getElementById( 'menu-icon' );
+        const closeIcon = document.getElementById( 'close-icon' );
+
+        menuButton.addEventListener( 'click', () => {
+            const isMenuOpen = mobileMenu.classList.contains( 'hidden' );
+
+            // Toggle visibility of the mobile menu
+            mobileMenu.classList.toggle( 'hidden', !isMenuOpen );
+
+            // Toggle menu and close icons
+            menuIcon.classList.toggle( 'hidden', isMenuOpen );
+            closeIcon.classList.toggle( 'hidden', !isMenuOpen );
+        } );
+
+        // Close the mobile menu when a link is clicked (for better UX)
+        const mobileLinks = mobileMenu.querySelectorAll( 'a' );
+        mobileLinks.forEach( link => {
+            link.addEventListener( 'click', () => {
+                // Collapse the menu after clicking a link
+                mobileMenu.classList.add( 'hidden' );
+                menuIcon.classList.remove( 'hidden' );
+                closeIcon.classList.add( 'hidden' );
+            } );
+        } );
+    </script>
+</body>
+
+</html>
